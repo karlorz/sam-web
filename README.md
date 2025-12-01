@@ -243,6 +243,29 @@ function SegmentImage({ imageSrc }) {
 | CPU Fallback | ✅ | ✅ | ✅ | ✅ |
 | OPFS Cache | ✅ | ✅ | ⚠️ Partial | ✅ |
 
+## Next.js Setup
+
+For Next.js projects, add this webpack configuration to `next.config.js`:
+
+```javascript
+const path = require('path');
+
+module.exports = {
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'onnxruntime-web/all': path.join(
+        __dirname,
+        'node_modules/onnxruntime-web/dist/ort.all.bundle.min.mjs'
+      ),
+    };
+    return config;
+  },
+};
+```
+
+**Note:** For Next.js, use a local worker file instead of importing from `sam-web/worker` directly. See [sam-web-demo](https://github.com/karlorz/sam-web-demo) for a complete example.
+
 ## Advanced Usage
 
 ### Custom Model Configuration

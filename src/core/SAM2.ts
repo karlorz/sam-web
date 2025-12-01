@@ -3,7 +3,8 @@
  * Low-level ONNX model management and inference
  */
 
-import * as ort from 'onnxruntime-web/all';
+// Use base onnxruntime-web - consumer should configure execution providers
+import * as ort from 'onnxruntime-web';
 import type { ModelConfig } from '../models/types';
 import { getModelConfig, DEFAULT_MODEL_ID } from '../models/config';
 
