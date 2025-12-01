@@ -5,7 +5,7 @@
  *
  * @example
  * ```typescript
- * import { SAMClient } from '@anthropic-ai/sam-web';
+ * import { SAMClient } from 'sam-web';
  *
  * const sam = new SAMClient({ model: 'mobilesam' });
  * await sam.initialize(new URL('./worker.js', import.meta.url));

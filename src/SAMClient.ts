@@ -101,7 +101,7 @@ export class SAMClient {
       // Default: try to use bundled worker
       // Consumer should provide their own worker URL in most cases
       throw new Error(
-        'Worker URL required. Use: new URL("@anthropic-ai/sam-web/worker", import.meta.url)'
+        'Worker URL required. Use: new URL("sam-web/worker", import.meta.url)'
       );
     }
 

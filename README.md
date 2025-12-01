@@ -1,4 +1,4 @@
-# @anthropic-ai/sam-web
+# sam-web
 
 Client-side Segment Anything Model (SAM) for the browser with WebGPU acceleration.
 
@@ -16,13 +16,13 @@ Client-side Segment Anything Model (SAM) for the browser with WebGPU acceleratio
 ## Installation
 
 ```bash
-npm install @anthropic-ai/sam-web onnxruntime-web
+npm install sam-web onnxruntime-web
 ```
 
 ## Quick Start
 
 ```typescript
-import { SAMClient } from '@anthropic-ai/sam-web';
+import { SAMClient } from 'sam-web';
 
 // Create client with model choice
 const sam = new SAMClient({
@@ -32,7 +32,7 @@ const sam = new SAMClient({
 
 // Initialize worker (required)
 await sam.initialize(
-  new URL('@anthropic-ai/sam-web/worker', import.meta.url)
+  new URL('sam-web/worker', import.meta.url)
 );
 
 // Load and encode image (one-time per image, ~300-700ms)
@@ -80,7 +80,7 @@ Initialize the worker. Required before using `setImage` or `segment`.
 
 ```typescript
 await sam.initialize(
-  new URL('@anthropic-ai/sam-web/worker', import.meta.url)
+  new URL('sam-web/worker', import.meta.url)
 );
 ```
 
@@ -160,7 +160,7 @@ const models = SAMClient.getAvailableModels();
 
 ```tsx
 import { useEffect, useRef, useState } from 'react';
-import { SAMClient } from '@anthropic-ai/sam-web';
+import { SAMClient } from 'sam-web';
 
 function SegmentImage({ imageSrc }) {
   const samRef = useRef<SAMClient | null>(null);
@@ -171,7 +171,7 @@ function SegmentImage({ imageSrc }) {
     samRef.current = sam;
 
     sam.initialize(
-      new URL('@anthropic-ai/sam-web/worker', import.meta.url)
+      new URL('sam-web/worker', import.meta.url)
     ).then(() => setReady(true));
 
     return () => sam.dispose();
@@ -207,12 +207,12 @@ function SegmentImage({ imageSrc }) {
 
 ```html
 <script type="module">
-  import { SAMClient } from '@anthropic-ai/sam-web';
+  import { SAMClient } from 'sam-web';
 
   const sam = new SAMClient({ model: 'mobilesam' });
 
   await sam.initialize(
-    new URL('@anthropic-ai/sam-web/worker', import.meta.url)
+    new URL('sam-web/worker', import.meta.url)
   );
 
   const img = document.getElementById('image');
@@ -248,7 +248,7 @@ function SegmentImage({ imageSrc }) {
 ### Custom Model Configuration
 
 ```typescript
-import { SAMClient, ModelConfig } from '@anthropic-ai/sam-web';
+import { SAMClient, ModelConfig } from 'sam-web';
 
 const customConfig: ModelConfig = {
   id: 'my-model',
@@ -272,7 +272,7 @@ const sam = new SAMClient({ model: customConfig });
 For advanced control, use the core classes directly:
 
 ```typescript
-import { SAM2, SAMWorker } from '@anthropic-ai/sam-web';
+import { SAM2, SAMWorker } from 'sam-web';
 
 // Direct ONNX inference (no worker)
 const sam2 = new SAM2('mobilesam');
