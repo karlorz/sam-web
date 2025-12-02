@@ -116,15 +116,21 @@ export const InteractiveDemo: Story = {
           onProgress: handleProgress,
         });
 
-        // Use the built worker from staticDirs - handle GitHub Pages base path
-        const base = window.location.pathname.replace(/\/iframe\.html.*$/, '');
-        const workerUrl = new URL(`${base}/dist/worker.js`, window.location.origin);
+        // In Storybook, use inline worker URL with import.meta.url
+        // This works in dev mode where Vite handles worker bundling
+        const workerUrl = new URL('./core/worker.ts', import.meta.url);
         await client.initialize(workerUrl);
         clientRef.current = client;
         setStatus('Model loaded. Load an image to continue.');
         setLoading(false);
       } catch (error) {
-        setStatus(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        const msg = error instanceof Error ? error.message : 'Unknown error';
+        // Provide helpful message for common worker issues
+        if (msg.includes('Worker') || msg.includes('import')) {
+          setStatus('Interactive demo requires local dev server. See live demo at karlorz.github.io/sam-web-demo');
+        } else {
+          setStatus(`Error: ${msg}`);
+        }
         setLoading(false);
       }
     };
