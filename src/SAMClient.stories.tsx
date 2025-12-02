@@ -116,7 +116,8 @@ export const InteractiveDemo: Story = {
           onProgress: handleProgress,
         });
 
-        await client.initialize(new URL('./core/worker.ts', import.meta.url));
+        // Use the built worker from staticDirs
+        await client.initialize('/dist/worker.js');
         clientRef.current = client;
         setStatus('Model loaded. Load an image to continue.');
         setLoading(false);

@@ -4,6 +4,7 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: ['@storybook/addon-docs'],
   framework: '@storybook/react-vite',
+  staticDirs: [{ from: '../dist', to: '/dist' }],
   viteFinal: async (config) => {
     // Merge custom Vite config for ONNX runtime support
     return {
