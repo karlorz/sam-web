@@ -116,10 +116,11 @@ export const InteractiveDemo: Story = {
           onProgress: handleProgress,
         });
 
-        // In Storybook, use inline worker URL with import.meta.url
-        // This works in dev mode where Vite handles worker bundling
-        const workerUrl = new URL('./core/worker.ts', import.meta.url);
-        await client.initialize(workerUrl);
+        // Use Vite's worker import with ?worker suffix to get properly bundled worker
+        // This ensures onnxruntime-web and other deps are bundled into the worker
+        const InlineWorker = (await import('./core/worker.ts?worker')).default;
+        const worker = new InlineWorker();
+        await client.initializeWithWorker(worker);
         clientRef.current = client;
         setStatus('Model loaded. Load an image to continue.');
         setLoading(false);

@@ -116,6 +116,25 @@ export class SAMClient {
   }
 
   /**
+   * Initialize the client with a pre-created Worker instance
+   * Useful when bundlers provide a worker class (e.g., Vite's ?worker import)
+   *
+   * @param worker - Worker instance
+   */
+  async initializeWithWorker(worker: Worker): Promise<void> {
+    this.worker.setWorker(worker);
+
+    // Initialize with model
+    const result = await this.worker.initialize(this.modelConfig.id);
+
+    if (!result.success) {
+      throw new Error('Failed to initialize SAM model');
+    }
+
+    this.isReady = true;
+  }
+
+  /**
    * Load and encode an image
    * This should be called once per image. Subsequent segment() calls are fast.
    *

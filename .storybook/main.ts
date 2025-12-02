@@ -15,14 +15,15 @@ const config: StorybookConfig = {
           '@': '/src',
         },
       },
-      // Exclude onnxruntime-web from optimization to prevent WASM bundling issues
-      optimizeDeps: {
-        ...config.optimizeDeps,
-        exclude: [...(config.optimizeDeps?.exclude ?? []), 'onnxruntime-web'],
-      },
-      // Configure worker format for ES modules
+      // Configure worker to bundle dependencies (including onnxruntime-web)
       worker: {
         format: 'es',
+        rollupOptions: {
+          output: {
+            // Inline all dependencies into worker bundle
+            inlineDynamicImports: true,
+          },
+        },
       },
     };
   },
