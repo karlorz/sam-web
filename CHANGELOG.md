@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/karlorz/sam-web/compare/v0.2.5...v0.3.0) (2025-12-02)
+
+
+### Features
+
+* Add DemoApp story with full-featured SAM demo ([d21c596](https://github.com/karlorz/sam-web/commit/d21c5966797894f768dcdde2e8797eba9ffce0cb))
+
 ## [0.2.5](https://github.com/karlorz/sam-web/compare/v0.2.4...v0.2.5) (2025-12-02)
 
 
