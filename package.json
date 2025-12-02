@@ -24,8 +24,16 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "check": "./scripts/check.sh",
+    "lint": "eslint src/",
     "test": "vitest",
+    "demo": "cd examples/demo && bun install && bun run dev",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "prepublishOnly": "npm run build"
+  },
+  "storybook": {
+    "url": "https://karlorz.github.io/sam-web-storybook/"
   },
   "keywords": [
     "sam",
@@ -51,12 +59,23 @@
     "onnxruntime-web": "^1.20.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@storybook/addon-docs": "^10.1.2",
+    "@storybook/react-vite": "^10.1.2",
     "@types/node": "^20.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
     "onnxruntime-web": "^1.20.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "semantic-release": "^24.2.0",
+    "storybook": "^10.1.2",
     "typescript": "^5.3.0",
+    "typescript-eslint": "^8.48.0",
     "vite": "^5.4.0",
     "vite-plugin-dts": "^4.0.0",
     "vitest": "^2.0.0"
