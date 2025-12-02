@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/karlorz/sam-web/compare/v0.2.1...v0.2.2) (2025-12-02)
+
+
+### Bug Fixes
+
+* Fix worker loading in Storybook ([8598cdb](https://github.com/karlorz/sam-web/commit/8598cdbe1cac7d79d0a00b614cbaaf1a6f541419))
+
 ## [0.2.1](https://github.com/karlorz/sam-web/compare/v0.2.0...v0.2.1) (2025-12-02)
 
 
