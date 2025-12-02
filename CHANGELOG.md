@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/karlorz/sam-web/compare/v0.2.2...v0.2.3) (2025-12-02)
+
+
+### Bug Fixes
+
+* Handle GitHub Pages base path for worker URL ([e5716c3](https://github.com/karlorz/sam-web/commit/e5716c3990e03d3381b61928e0e60397a6402523))
+
 ## [0.2.2](https://github.com/karlorz/sam-web/compare/v0.2.1...v0.2.2) (2025-12-02)
 
 
