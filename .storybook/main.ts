@@ -1,10 +1,15 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: ['@storybook/addon-docs'],
   framework: '@storybook/react-vite',
   viteFinal: async (config) => {
+    // Add Tailwind CSS plugin
+    config.plugins = config.plugins || [];
+    config.plugins.push(tailwindcss());
+
     // Merge custom Vite config for ONNX runtime support
     return {
       ...config,

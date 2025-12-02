@@ -554,3 +554,39 @@ canvas.addEventListener('click', async (e) => {
     </div>
   ),
 };
+
+/**
+ * Full-featured demo app with image upload, model selection, and crop functionality.
+ * This is the same demo app available in the examples/demo folder.
+ */
+export const DemoApp: Story = {
+  render: function Render() {
+    const [SAMDemo, setSAMDemo] = useState<React.ComponentType | null>(null);
+
+    useEffect(() => {
+      import('./demo/SAMDemo').then((mod) => {
+        setSAMDemo(() => mod.default);
+      });
+    }, []);
+
+    if (!SAMDemo) {
+      return <div style={{ padding: 20 }}>Loading Demo App...</div>;
+    }
+
+    return <SAMDemo />;
+  },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        story: `
+Full-featured demo application with:
+- **Model Selection**: Choose between SAM2 Tiny, SAM2 Small, and MobileSAM
+- **Image Upload**: Upload your own images or load from URL
+- **Crop Export**: Export the segmented region as PNG
+- **Performance Stats**: View encoding and decoding times
+        `,
+      },
+    },
+  },
+};

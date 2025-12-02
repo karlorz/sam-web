@@ -8,6 +8,11 @@ import * as ort from 'onnxruntime-web';
 import type { ModelConfig } from '../models/types';
 import { getModelConfig, DEFAULT_MODEL_ID } from '../models/config';
 
+// Configure WASM paths to use jsdelivr CDN - ensures WASM files load correctly in all environments
+// This is especially important for Storybook and bundled workers where WASM files may not be served correctly
+const ONNX_WASM_VERSION = '1.23.2';
+ort.env.wasm.wasmPaths = `https://cdn.jsdelivr.net/npm/onnxruntime-web@${ONNX_WASM_VERSION}/dist/`;
+
 // Type for ONNX inference session with execution provider
 type SessionWithDevice = [ort.InferenceSession, string];
 
