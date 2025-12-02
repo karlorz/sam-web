@@ -1,3 +1,10 @@
+## [0.2.5](https://github.com/karlorz/sam-web/compare/v0.2.4...v0.2.5) (2025-12-02)
+
+
+### Bug Fixes
+
+* Enable working interactive demo in static Storybook builds ([56eeeb2](https://github.com/karlorz/sam-web/commit/56eeeb286adcc5767dbe47a24e970e1d3ed42415))
+
 ## [0.2.4](https://github.com/karlorz/sam-web/compare/v0.2.3...v0.2.4) (2025-12-02)
 
 
