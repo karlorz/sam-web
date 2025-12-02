@@ -116,8 +116,10 @@ export const InteractiveDemo: Story = {
           onProgress: handleProgress,
         });
 
-        // Use the built worker from staticDirs
-        await client.initialize('/dist/worker.js');
+        // Use the built worker from staticDirs - handle GitHub Pages base path
+        const base = window.location.pathname.replace(/\/iframe\.html.*$/, '');
+        const workerUrl = new URL(`${base}/dist/worker.js`, window.location.origin);
+        await client.initialize(workerUrl);
         clientRef.current = client;
         setStatus('Model loaded. Load an image to continue.');
         setLoading(false);
