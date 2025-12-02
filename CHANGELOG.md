@@ -1,3 +1,10 @@
+## [0.2.4](https://github.com/karlorz/sam-web/compare/v0.2.3...v0.2.4) (2025-12-02)
+
+
+### Bug Fixes
+
+* Use Vite worker bundling for Storybook demo ([b8dbda4](https://github.com/karlorz/sam-web/commit/b8dbda43b46a4f36506698c2dbb4d1d190f5dc6d))
+
 ## [0.2.3](https://github.com/karlorz/sam-web/compare/v0.2.2...v0.2.3) (2025-12-02)
 
 

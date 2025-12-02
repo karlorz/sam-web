@@ -1,6 +1,6 @@
 {
   "name": "sam-web",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Client-side SAM (Segment Anything Model) for click-to-segment with WebGPU acceleration",
   "type": "module",
   "main": "./dist/index.cjs",
